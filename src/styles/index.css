@@ -12,14 +12,6 @@ img {
   display: bloсk;
 }
 
-a {
-  color: #ec407a;
-}
-
-a:hover {
-  color: #e91e63;
-}
-
 button {
   display: block;
   border: none;
@@ -75,44 +67,21 @@ button:disabled:hover {
   column-count: 4;
   column-gap: 5px;
   min-height: 400px;
+  border-radius: 6px;
 }
 
-a {
+.card-preview {
   display: inline-block;
   overflow: hidden;
   width: 100%;
   min-height: 100px;
 }
 
+.card-preview__image {
+  border-radius: 6px;
+}
+
 /* Popup style */
-.popup .content {
-  text-align: right;
-  column-count: initial;
-}
-
-.popup-content__figure {
-  max-width: 100%;
-  min-height: 350px;
-  margin: 0;
-}
-
-.popup-content__photo {
-  border-radius: 6px;
-}
-
-.popup-content__caption {
-  color: #424242;
-  margin: 5px 0;
-}
-
-.content {
-  border-radius: 6px;
-}
-
-.image {
-  border-radius: 6px;
-}
-
 .popup {
   position: fixed;
   visibility: hidden;
@@ -151,8 +120,30 @@ a {
   background-color: #fff;
   border-radius: 6px;
   padding: 20px;
+  text-align: right;
+  column-count: initial;
 }
 
-.popup .link {
+.popup-image__figure {
+  max-width: 100%;
+  min-height: 350px;
+  margin: 0;
+}
+
+.popup-image__photo {
+  border-radius: 6px;
+}
+
+.popup-image__caption {
+  color: #424242;
+  margin: 5px 0;
+}
+
+.popup-image__link {
   display: inline;
+  color: #ec407a;
+}
+
+.popup-image__link:hover {
+  color: #e91e63;
 }

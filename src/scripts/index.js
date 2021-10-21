@@ -104,14 +104,13 @@ const renderPictures = function(list) {
   list.forEach(function(element) {
     const clone = templateImageCard.content.cloneNode(true);
 
-    const link = clone.querySelector("a");
+    const link = clone.querySelector(".card-preview");
     link.href = element.url;
     link.dataset.id = element.id;
 
-    const image = clone.querySelector("img");
+    const image = clone.querySelector(".card-preview__image");
     image.src = cropImage(element.download_url, 5);
     image.alt = element.author;
-    image.classList.add("preview");
     fragment.appendChild(clone);
   });
 
@@ -126,8 +125,8 @@ const renderPictures = function(list) {
  */
 const renderPopupPicture = function(picture) {
   const clone = templateImagePopup.content.cloneNode(true);
-  const img = clone.querySelector(".popup-content__photo");
-  const link = clone.querySelector(".popup-content__link");
+  const img = clone.querySelector(".popup-image__photo");
+  const link = clone.querySelector(".popup-image__link");
   const author = clone.querySelector(".author");
 
   img.src = cropImage(picture.download_url, 2);
