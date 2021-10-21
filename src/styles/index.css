@@ -36,7 +36,7 @@ button:disabled:hover {
   background-color: #cfd8dc;
 }
 
-main {
+.main {
   max-width: 1400px;
   min-height: 100%;
   display: flex;
@@ -90,17 +90,17 @@ a {
   column-count: initial;
 }
 
-figure {
+.popup-content__figure {
   max-width: 100%;
   min-height: 350px;
   margin: 0;
 }
 
-figure img {
+.popup-content__photo {
   border-radius: 6px;
 }
 
-figcaption {
+.popup-content__caption {
   color: #424242;
   margin: 5px 0;
 }

@@ -1,13 +1,13 @@
 "use strict";
 
-const action = document.querySelector(".action");
+const loadMoreButton = document.querySelector(".fetch");
 const templateImageCard = document.querySelector("#image");
 const templateImagePopup = document.querySelector("#popup-image");
 const container = document.querySelector(".images");
 
 const popup = document.querySelector(".popup");
 const popupContainer = document.querySelector(".popup .content");
-const popupClose = document.querySelector(".popup .action");
+const popupClose = document.querySelector(".popup .close");
 const loader = document.querySelector(".loader");
 
 const MAX_PAGE_IMAGES = 34;
@@ -18,7 +18,7 @@ let loaderTimeout;
  * Отправляется первый запрос за картинками, юез параметров т.к. с дефолтными настройками.
  */
 const initialState = function() {
-  action.disabled = false;
+  loadMoreButton.disabled = false;
   getPictures();
 };
 
@@ -126,8 +126,8 @@ const renderPictures = function(list) {
  */
 const renderPopupPicture = function(picture) {
   const clone = templateImagePopup.content.cloneNode(true);
-  const img = clone.querySelector("img");
-  const link = clone.querySelector("a");
+  const img = clone.querySelector(".popup-content__photo");
+  const link = clone.querySelector(".popup-content__link");
   const author = clone.querySelector(".author");
 
   img.src = cropImage(picture.download_url, 2);
@@ -157,7 +157,7 @@ const togglePopup = function() {
  * Обработчик кнопки подгрузки картинок
  * @param {MouseEvent} evt
  */
-const actionHandler = function(evt) {
+const loadHandler = function(evt) {
   evt.preventDefault();
   const nextPage = Number(evt.currentTarget.dataset.page);
   evt.currentTarget.dataset.page = nextPage + 1;
@@ -187,7 +187,7 @@ const imageHandler = function(evt) {
   }
 };
 
-action.addEventListener("click", actionHandler);
+loadMoreButton.addEventListener("click", loadHandler);
 container.addEventListener("click", imageHandler);
 popupClose.addEventListener("click", togglePopup);
 
